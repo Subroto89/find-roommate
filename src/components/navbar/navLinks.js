@@ -7,16 +7,16 @@ export const navLinks = [
     {
         id:2,
         title: "Add To Find Roommate",
-        target: '#'
+        target: '/add-roommate'
     },
     {
         id:3,
         title: "Browse Listing",
-        target: '#'
+        target: '/browse-listing'
     },
     {
         id:4,
         title: "My Listings",
-        target: '#'
+        target: '/my-listing'
     }
 ]
