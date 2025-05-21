@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
 
 const AddRoommate = () => {
     const [selectedPreferences, setSelectedPreferences] = useState([]);
+
+    const {user} = use(AuthContext);
 
     const lifestyleOptions = [
     "Pets Allowed", "Smoking Allowed", "Night Owl", "Early Bird",
@@ -96,6 +99,7 @@ const AddRoommate = () => {
                 type="email"
                 id="userEmail"
                 name="userEmail"
+                defaultValue={user.email}
                 className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 bg-gray-100 leading-tight cursor-not-allowed"
                 readOnly
               />
@@ -113,6 +117,7 @@ const AddRoommate = () => {
                 type="text"
                 id="userName"
                 name="userName"
+                defaultValue={user.displayName}
                 className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 bg-gray-100 leading-tight cursor-not-allowed"
                 readOnly
               />

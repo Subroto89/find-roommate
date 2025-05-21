@@ -8,6 +8,8 @@ import ErrorPage from '../pages/ErrorPage';
 import BrowseListing from '../pages/BrowseListing';
 import MyListing from '../pages/MyListing';
 import AddRoommate from '../pages/AddRoommate';
+import PrivateRoute from '../privateRoute/PrivateRoute';
+import Loader from '../components/Loader';
 
 const router = createBrowserRouter([
     {
@@ -21,10 +23,14 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add-roommate',
-                Component: AddRoommate
+                element: <PrivateRoute>
+                    <AddRoommate></AddRoommate>
+                </PrivateRoute>
             },
             {
                 path: '/browse-listing',
+                loader: () => fetch('http://localhost:3000/roommates'),
+                hydrateFallbackElement: <Loader></Loader>,
                 Component: BrowseListing
             },
             {
