@@ -12,6 +12,7 @@ import PrivateRoute from "../privateRoute/PrivateRoute";
 import Loader from "../components/Loader";
 import DetailsPage from "../pages/DetailsPage";
 import MyListings from "../pages/MyListings";
+import MyListingUpdate from "../pages/MyListingUpdate";
 
 const router = createBrowserRouter([
   {
@@ -51,10 +52,20 @@ const router = createBrowserRouter([
       {
         path: "/my-listing/:email",
         loader: ({params}) => fetch(`http://localhost:3000/my-listings/${params.email}`),
-        hydrateFallbackElement: <loader></loader>,
+        hydrateFallbackElement: <Loader></Loader>,
         element: (
             <PrivateRoute>
                 <MyListings></MyListings>
+            </PrivateRoute>
+        )
+      },
+      {
+        path: "my-listing/particular/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/my-listings/particular/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
+        element:(
+            <PrivateRoute>
+                <MyListingUpdate></MyListingUpdate>
             </PrivateRoute>
         )
       },

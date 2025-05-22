@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { MdModeEdit, MdOutlineDeleteOutline } from "react-icons/md";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const MyListings = () => {
   const myListings = useLoaderData();
   const [listings, setListings] = useState(myListings);
+
+  const navigate = useNavigate();
 
   console.log(listings);
 
@@ -128,12 +130,14 @@ const MyListings = () => {
                     {listing.userName} ({listing.userEmail})
                   </td> */}
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex items-center gap-4">
-                  <div className="border border-gray-300 p-2 px-3 rounded-lg hover:bg-green-300 cursor-pointer group">
+                  <Link 
+                   to={`/my-listing/particular/${listing._id}`}
+                    className="border border-gray-300 p-2 px-3 rounded-lg hover:bg-green-300 cursor-pointer group">
                     <MdModeEdit
                       size={16}
                       className="text-gray-800 group-hover:text-white"
                     />
-                  </div>
+                  </Link>
                   <div
                     onClick={() => handleDelete(listing._id)}
                     className="border border-gray-300 p-2 px-3 rounded-lg hover:bg-green-300 cursor-pointer group"
