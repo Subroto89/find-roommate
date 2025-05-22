@@ -6,21 +6,31 @@ import { SlDislike, SlLike } from "react-icons/sl";
 const DetailesPage = () => {
   const { user } = use(AuthContext);
   const [isLike, setIsLike] = useState(0);
-  const [likedOrNot, setLikedOrNot] = useState(false)
+
   
    useEffect(()=>{
     setIsLike(like)
-    setLikedOrNot(likedOrNotValue)
+   
   },[])
   
   const handleIsLike = () => {
     const likeAmount = parseInt(isLike);
     const incrementedLikeAmount = likeAmount + 1;
     setIsLike(incrementedLikeAmount);
-    setLikedOrNot(true);
+    // setLikedOrNot(true);
 
-    // send isLike & liked data to database for updating
-
+    // send isLike data to database for updating
+    fetch(`http://localhost:3000/roommates/${_id}`, {
+        method: 'PATCH',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body: JSON.stringify({like: incrementedLikeAmount})
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
 
     
   }
@@ -28,6 +38,7 @@ const DetailesPage = () => {
   const data = useLoaderData();
   console.log(data);
   const {
+    _id,
     availability,
     contactInfo,
     description,
@@ -39,7 +50,7 @@ const DetailesPage = () => {
     userEmail,
     userName,
     like,
-    likedOrNotValue
+    
   } = data;
 
  
@@ -113,8 +124,8 @@ const DetailesPage = () => {
           Phone No: {isLike ? <span>{contactInfo}</span> : 'nai'}
         </p>
         {
-            likedOrNot ? 
-            <div className="flex items-center gap-2 bg-green-400 px-2 rounded-lg w-20 cursor-pointer"><span>Liked</span> <SlLike size={20}/></div> : 
+            (isLike > 0) ? 
+            <div  className="flex items-center gap-2 bg-green-400 px-2 rounded-lg w-20 cursor-pointer"><span>Liked</span> <SlLike size={20}/></div> : 
             <div onClick={handleIsLike} className="flex items-center gap-2 bg-gray-400 px-2 rounded-lg w-20 cursor-pointer"><span>Like</span> <SlLike size={20}/></div>
         }
       </div>

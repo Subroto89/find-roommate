@@ -59,6 +59,7 @@ const Register = () => {
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
+
   };
 
   //   contact firebase for creating user using email address

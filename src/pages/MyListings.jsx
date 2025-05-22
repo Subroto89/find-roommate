@@ -1,22 +1,17 @@
-import React from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import React from 'react';
+import { MdModeEdit, MdOutlineDeleteOutline } from 'react-icons/md';
+import { useLoaderData } from 'react-router';
 
-const BrowseListing = () => {
-
-    const navigate = useNavigate();
-    const listings = useLoaderData();
-    const handleSeeMore = (id) => {
-        navigate(`/details/${id}`)
-    }
+const MyListings = () => {
+    const listings = useLoaderData()
     
-  return (
-    <>
-      <div className="container mx-auto p-6 md:p-10 bg-gray-50 min-h-screen">
-        <h1 className="text-4xl font-extrabold text-gray-800 text-center mb-10 md:mb-12">
-          Browse Roommate Listings
-        </h1>
+   
+        console.log(listings);
+ 
 
-        <div className="overflow-x-auto bg-white rounded-xl shadow-2xl border border-gray-200">
+    return (
+        <div>
+            <div className="overflow-x-auto bg-white rounded-xl shadow-2xl border border-gray-200">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-100">
               <tr>
@@ -32,12 +27,12 @@ const BrowseListing = () => {
                 >
                   Location
                 </th>
-                <th
+                {/* <th
                   scope="col"
                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
                   Rent Amount
-                </th>
+                </th> */}
                 <th
                   scope="col"
                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -50,12 +45,12 @@ const BrowseListing = () => {
                 >
                   Availability
                 </th>
-                <th
+                {/* <th
                   scope="col"
                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
                   Posted By
-                </th>
+                </th> */}
                 <th scope="col" className="relative px-6 py-3">
                   <span className="sr-only">See More</span>
                 </th>
@@ -77,11 +72,11 @@ const BrowseListing = () => {
                       {listing.location}
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  {/* <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">
                       BDT {listing.rentAmount.toLocaleString()}
                     </div>
-                  </td>
+                  </td> */}
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">
                       {listing.roomType}
@@ -98,27 +93,27 @@ const BrowseListing = () => {
                       {listing.availability ? "Available" : "Not Available"}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {listing.userName} ({listing.userEmail})
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button
-                      onClick={() => handleSeeMore(listing._id)}
-                      className="text-blue-600 hover:text-blue-900 font-semibold px-4 py-2 border border-blue-600 rounded-lg hover:bg-blue-600 transition-colors duration-200"
-                    >
-                      See More
-                    </button>
+                  </td> */}
+                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex items-center gap-4">
+                  
+                    <div className="border border-gray-300 p-2 px-3 rounded-lg hover:bg-green-300 cursor-pointer group">
+                        <MdModeEdit size={16} className="text-gray-800 group-hover:text-white"/>
+                    </div>
+                    <div className="border border-gray-300 p-2 px-3 rounded-lg hover:bg-green-300 cursor-pointer group">
+                         <MdOutlineDeleteOutline size={16} className="text-gray-800 group-hover:text-white"/>
+                    </div>
+                   
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-
-        
-      </div>
-    </>
-  );
+                      
+        </div>
+    );
 };
 
-export default BrowseListing;
+export default MyListings;

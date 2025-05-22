@@ -26,6 +26,9 @@ const Navbar = () => {
     setOpen(!open);
   };
 
+
+  
+
   return (
     <div>
       <div className="bg-blue-200 flex justify-between items-center w-full px-8 md:px-32">
@@ -35,6 +38,7 @@ const Navbar = () => {
           <h1 className="text-2xl text-gray-500 font-bold absolute top-16">
             FindRoommate
           </h1>
+       
         </div>
 
         {/* Links Section */}
@@ -48,6 +52,7 @@ const Navbar = () => {
               {link.title}
             </NavLink>
           ))}
+          <Link to={`/my-listing/${user?.email}`} className="border-b-2 border-gray-600 px-4 py-1 hover:border-blue-800 hover:text-blue-700">My Listing</Link>
         </div>
         {/* Button Section */}
         <div className="flex gap-4 text-gray-600 text-lg">

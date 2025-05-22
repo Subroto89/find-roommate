@@ -11,6 +11,7 @@ import AddRoommate from "../pages/AddRoommate";
 import PrivateRoute from "../privateRoute/PrivateRoute";
 import Loader from "../components/Loader";
 import DetailsPage from "../pages/DetailsPage";
+import MyListings from "../pages/MyListings";
 
 const router = createBrowserRouter([
   {
@@ -48,8 +49,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/my-listing",
-        Component: MyListing,
+        path: "/my-listing/:email",
+        loader: ({params}) => fetch(`http://localhost:3000/my-listings/${params.email}`),
+        hydrateFallbackElement: <loader></loader>,
+        element: (
+            <PrivateRoute>
+                <MyListings></MyListings>
+            </PrivateRoute>
+        )
       },
       {
         path: "signIn",

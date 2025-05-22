@@ -1,3 +1,4 @@
+
 export const navLinks = [
     {
         id:1,
@@ -13,10 +14,5 @@ export const navLinks = [
         id:3,
         title: "Browse Listing",
         target: '/browse-listing'
-    },
-    {
-        id:4,
-        title: "My Listings",
-        target: '/my-listing'
     }
 ]
