@@ -284,6 +284,10 @@ const AddRoommate = () => {
               Add Listing
             </button>
           </div>
+
+          {/* Like Section-This is invisible */}
+          <input type="number" name="like" id="like" defaultValue="0" hidden className="border border-gray-600 w-40 text-gray-800"/>
+          <input type="radio" name="likedOrNotValue" id="likedOrNotValue" hidden className="h-5 w-5 text-blue-600 focus:ring-blue-500"/>   
         </form>
       </div>
     </div>

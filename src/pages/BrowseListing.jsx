@@ -1,10 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 
 const BrowseListing = () => {
+
+    const navigate = useNavigate();
     const listings = useLoaderData();
     const handleSeeMore = (id) => {
-        
+        navigate(`/details/${id}`)
     }
     
   return (
