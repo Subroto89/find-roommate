@@ -4,9 +4,16 @@ import carousel2 from "../assets/carousel2.png";
 import carousel3 from "../assets/carousel3.png";
 import { Link } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import { Tooltip } from "react-tooltip";
+import { Typewriter, useTypewriter } from "react-simple-typewriter";
 
 const Slider = () => {
   const { user } = use(AuthContext);
+   const [text] = useTypewriter({
+    words: ['Intelligent Matching', 'Perfect Roommates'],
+    loop: 0
+  })
+  
   return (
     <div>
       <div className="carousel w-full">
@@ -16,17 +23,22 @@ const Slider = () => {
               <img src={carousel1} className="w-2/5 absolute right-30" />
               <div className="absolute top-30  mx-30">
                 <h2 className="text-xl text-gray-800 font-bold">
-                  Intelligent Matching, Perfect Roommates
+                  Intelligent {/* Intelligent Matching, Perfect Roommates */}
+                  {text}
                 </h2>
                 <p className="mt-6 mb-4 text-xl font-semibold text-gray-700 w-4/7">
                   Our advanced algorithm connects you with roommates who truly
                   fit your lifestyle, habits, and preferences. No more
                   guesswork, just great living.
                 </p>
-                <Link to={"/browse-listing"}>
+                <Link to={"/browse-listing"} id="my-anchor-element">
                   <button className="border border-gray-2 px-3 py-1 text-lg bg-gray-500 hover:bg-blue-600 rounded-lg">
                     Discover Your Match
                   </button>
+                  <Tooltip
+                    anchorSelect="#my-anchor-element"
+                    content="Show the existing posts!"
+                  />
                 </Link>
               </div>
             </div>

@@ -15,10 +15,19 @@ import {
 
 
 
+
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+
+
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
 
    const [user, setUser] = useState(null); 
    const [loading, setLoading] = useState(true);
@@ -66,7 +75,9 @@ const AuthProvider = ({ children }) => {
     updateUser,
     loading,
     setLoading,
-    auth
+    auth,
+    theme,
+    toggleTheme
   };
 
   return <AuthContext value={authData}>{children}</AuthContext>;

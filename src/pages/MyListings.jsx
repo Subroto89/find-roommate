@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MdModeEdit, MdOutlineDeleteOutline } from "react-icons/md";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const MyListings = () => {
   const myListings = useLoaderData();
@@ -28,10 +29,12 @@ const MyListings = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data.deletedCount)
+            console.log(data.deletedCount);
             if (data.deletedCount) {
-                const remainingListings = listings.filter(listing => listing._id !== id);
-                setListings(remainingListings);
+              const remainingListings = listings.filter(
+                (listing) => listing._id !== id
+              );
+              setListings(remainingListings);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your post has been deleted.",
@@ -126,25 +129,36 @@ const MyListings = () => {
                     {listing.availability ? "Available" : "Not Available"}
                   </span>
                 </td>
-                {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {listing.userName} ({listing.userEmail})
-                  </td> */}
+                
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium flex items-center gap-4">
-                  <Link 
-                   to={`/my-listing/particular/${listing._id}`}
-                    className="border border-gray-300 p-2 px-3 rounded-lg hover:bg-green-300 cursor-pointer group">
+                  <Link
+                    id="anchorEdit"
+                    to={`/my-listing/particular/${listing._id}`}
+                    className="border border-gray-300 p-2 px-3 rounded-lg hover:bg-green-300 cursor-pointer group"
+                  >
                     <MdModeEdit
                       size={16}
                       className="text-gray-800 group-hover:text-white"
                     />
+                    <Tooltip
+                      anchorSelect="#anchorEdit"
+                      content="Edit the post!"
+                    />
                   </Link>
+                  
                   <div
+                  id="anchor-element"
                     onClick={() => handleDelete(listing._id)}
                     className="border border-gray-300 p-2 px-3 rounded-lg hover:bg-green-300 cursor-pointer group"
                   >
                     <MdOutlineDeleteOutline
                       size={16}
                       className="text-gray-800 group-hover:text-white"
+                      
+                    />
+                    <Tooltip
+                      anchorSelect="#anchor-element"
+                      content="Delete Post!"
                     />
                   </div>
                 </td>

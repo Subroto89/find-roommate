@@ -27,11 +27,11 @@ const Navbar = () => {
   };
 
 
-  
+  const {theme, toggleTheme} = use(AuthContext);
 
   return (
     <div>
-      <div className="bg-blue-200 flex justify-between items-center w-full px-8 md:px-32">
+      <div onClick={toggleTheme} className={`${theme} flex justify-between items-center w-full px-8 md:px-32`} >
         {/* Logo Section */}
         <div className="flex flex-col justify-center items-center">
           <img src={logo} alt="logoImage" className="w-24 relative" />
