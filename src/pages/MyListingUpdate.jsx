@@ -56,7 +56,7 @@ const MyListingUpdate = () => {
       console.log(newRoommate);
   
       // send formData to database
-      fetch(`http://localhost:3000/roommates/${_id}`, {
+      fetch(`https://find-roommate-server-gules.vercel.app/roommates/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

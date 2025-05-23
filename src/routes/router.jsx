@@ -34,14 +34,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/browse-listing",
-        loader: () => fetch("http://localhost:3000/roommates"),
+        loader: () => fetch("https://find-roommate-server-gules.vercel.app/roommates"),
         hydrateFallbackElement: <Loader></Loader>,
         Component: BrowseListing,
       },
       {
         path: "/details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommates/${params.id}`),
+          fetch(`https://find-roommate-server-gules.vercel.app/roommates/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: (
           <PrivateRoute>
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-listing/:email",
-        loader: ({params}) => fetch(`http://localhost:3000/my-listings/${params.email}`),
+        loader: ({params}) => fetch(`https://find-roommate-server-gules.vercel.app/my-listings/${params.email}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: (
             <PrivateRoute>
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-listing/particular/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/my-listings/particular/${params.id}`),
+        loader: ({params}) => fetch(`https://find-roommate-server-gules.vercel.app/my-listings/particular/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element:(
             <PrivateRoute>

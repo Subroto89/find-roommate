@@ -62,7 +62,7 @@ const BrowseListing = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {listings.map((listing) => (
+              {listings?.map((listing) => (
                 <tr
                   key={listing._id}
                   className="hover:bg-blue-50 transition-colors duration-150"
