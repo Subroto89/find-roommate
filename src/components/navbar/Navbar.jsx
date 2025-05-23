@@ -7,38 +7,37 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import ResponsiveNavMenu from "./ResponsiveNavMenu";
 import { AuthContext } from "../../context/AuthContext";
 import { PiUserCircleFill } from "react-icons/pi";
+import { FaToggleOff, FaToggleOn } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
+  const { theme, toggleTheme } = use(AuthContext);
 
   const [open, setOpen] = useState(false);
-  
+
   const handleLogedOut = () => {
     logOut()
-    .then(() => {
-        alert('You are loged out successfully')
-    }).catch((error) => {
+      .then(() => {
+        alert("You are loged out successfully");
+      })
+      .catch((error) => {
         console.log(error);
-    })
-  }
-  
+      });
+  };
+
   const handleOpen = () => {
     setOpen(!open);
   };
 
-
-  const {theme, toggleTheme} = use(AuthContext);
-
   return (
     <div>
-      <div onClick={toggleTheme} className={`${theme} flex justify-between items-center w-full px-8 md:px-32`} >
+      <div className="bg-blue-200 flex justify-between items-center w-full px-8 md:px-32">
         {/* Logo Section */}
         <div className="flex flex-col justify-center items-center">
           <img src={logo} alt="logoImage" className="w-24 relative" />
           <h1 className="text-2xl text-gray-500 font-bold absolute top-16">
             FindRoommate
           </h1>
-       
         </div>
 
         {/* Links Section */}
@@ -52,10 +51,22 @@ const Navbar = () => {
               {link.title}
             </NavLink>
           ))}
-          <Link to={`/my-listing/${user?.email}`} className="border-b-2 border-gray-600 px-4 py-1 hover:border-blue-800 hover:text-blue-700">My Listing</Link>
+          <Link
+            to={`/my-listing/${user?.email}`}
+            className="border-b-2 border-gray-600 px-4 py-1 hover:border-blue-800 hover:text-blue-700"
+          >
+            My Listing
+          </Link>
         </div>
         {/* Button Section */}
         <div className="flex gap-4 text-gray-600 text-lg">
+          <button onClick={toggleTheme}>
+            {theme == "light" ? (
+              <FaToggleOff size={40} />
+            ) : (
+              <FaToggleOn size={40} />
+            )}
+          </button>
           <div>
             {user ? (
               <NavLink onClick={handleLogedOut}>
@@ -64,24 +75,38 @@ const Navbar = () => {
                 </button>
               </NavLink>
             ) : (
-              <NavLink to="signIn">
-                <button className="border border-gray-200 px-3 shadow btn btn-outline">
-                  SignIn
-                </button>
-              </NavLink>
+              <div className="space-x-4">
+                <NavLink to="signIn">
+                  <button className="border border-gray-200 px-3 shadow btn btn-outline">
+                    SignIn
+                  </button>
+                </NavLink>
+                <NavLink to="register">
+                  <button className="border border-gray-200 px-3 shadow btn btn-outline">
+                    Register
+                  </button>
+                </NavLink>
+              </div>
             )}
           </div>
           <div className="flex items-center gap-4">
-            <NavLink to="register">
+            {/* <NavLink to="register">
               <button className="border border-gray-200 px-3 shadow btn btn-outline">
                 Register
               </button>
-            </NavLink>
-            
+            </NavLink> */}
           </div>
           <div>
-              {user ? <img src={user.photoURL} title={user.displayName} className="w-10 rounded-full"/> : <PiUserCircleFill size={44}/>}
-            </div>
+            {user ? (
+              <img
+                src={user.photoURL}
+                title={user.displayName}
+                className="w-10 rounded-full"
+              />
+            ) : (
+              <PiUserCircleFill size={44} />
+            )}
+          </div>
         </div>
 
         {/* Mobile Hamburger Section */}
