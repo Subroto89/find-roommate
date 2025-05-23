@@ -1,31 +1,38 @@
-import React from "react";
+import React, { use } from "react";
+import carousel1 from "../assets/carousel1.png";
+import carousel2 from "../assets/carousel2.png";
+import carousel3 from "../assets/carousel3.png";
+import { Link } from "react-router";
+import { AuthContext } from "../context/AuthContext";
 
 const Slider = () => {
+  const { user } = use(AuthContext);
   return (
     <div>
       <div className="carousel w-full">
         <div id="slide1" className="carousel-item relative w-full">
           <div className="w-full">
-            <div className="overflow-hidden h-[400px] relative">
-              <img
-                src="https://i.ibb.co/ycqLRYNv/5935490.jpg"
-                className="w-full absolute -top-30"
-              />
-              <div className="absolute top-60 bg-blue-100 mx-30">
-                <h2 className="text-xl text-gray-800 font-bold text-center">Intelligent Matching, Perfect Roommates</h2>
-                <p className="mt-6 text-xl font-semibold text-gray-700 bg-blue-100 text-center">
+            <div className="overflow-hidden h-[400px] bg-blue-100 relative">
+              <img src={carousel1} className="w-2/5 absolute right-30" />
+              <div className="absolute top-30  mx-30">
+                <h2 className="text-xl text-gray-800 font-bold">
+                  Intelligent Matching, Perfect Roommates
+                </h2>
+                <p className="mt-6 mb-4 text-xl font-semibold text-gray-700 w-4/7">
                   Our advanced algorithm connects you with roommates who truly
                   fit your lifestyle, habits, and preferences. No more
                   guesswork, just great living.
                 </p>
-                <button className="border border-gray-2 px-3 py-1 text-lg bg-blue-400 hover:bg-blue-600 absolute left-3/7">
-                  Discover Your Match
-                </button>
+                <Link to={"/browse-listing"}>
+                  <button className="border border-gray-2 px-3 py-1 text-lg bg-gray-500 hover:bg-blue-600 rounded-lg">
+                    Discover Your Match
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide4" className="btn btn-circle">
+            <a href="#slide3" className="btn btn-circle">
               ❮
             </a>
             <a href="#slide2" className="btn btn-circle">
@@ -33,11 +40,30 @@ const Slider = () => {
             </a>
           </div>
         </div>
+
+        {/* Slide No 2 */}
         <div id="slide2" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-            className="w-full"
-          />
+          <div className="w-full">
+            <div className="overflow-hidden h-[400px] bg-blue-100 relative">
+              <img src={carousel2} className="w-2/5 absolute right-30" />
+              <div className="absolute top-30  mx-30">
+                <h2 className="text-xl text-gray-800 font-bold">
+                  Find Your Roommate - Super Fast
+                </h2>
+                <p className="mt-6 mb-4 text-xl font-semibold text-gray-700 w-4/7">
+                  Browse existing roommate listing from the navbar & you will
+                  get thousands of listings. Select those you are interested in
+                  and hit the like button to get theme next time easily. Chat
+                  with your matched roommate and settle instantly.
+                </p>
+                <Link to={"/browse-listing"}>
+                  <button className="border border-gray-2 px-3 py-1 text-lg bg-gray-500 hover:bg-blue-600 rounded-lg">
+                    Browse Listings
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <a href="#slide1" className="btn btn-circle">
               ❮
@@ -47,27 +73,32 @@ const Slider = () => {
             </a>
           </div>
         </div>
+
+        {/* Slide No 3 */}
         <div id="slide3" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-            className="w-full"
-          />
+          <div className="w-full">
+            <div className="overflow-hidden h-[400px] bg-blue-100 relative">
+              <img src={carousel3} className="w-2/5 absolute right-30" />
+              <div className="absolute top-30  mx-30">
+                <h2 className="text-xl text-gray-800 font-bold">
+                  Now, You Can Post Your Listing !
+                </h2>
+                <p className="mt-6 mb-4 text-xl font-semibold text-gray-700 w-4/7">
+                  You can also post your listing to share about yourself so that
+                  others can find you too. You can Post Multiple listings and
+                  edit or delete one if you want. Its totally free to post.
+                </p>
+
+                <Link to={"/add-roommate"}>
+                  <button className="border border-gray-2 px-3 py-1 text-lg bg-gray-500 hover:bg-blue-600 rounded-lg">
+                    Post Your List
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
           <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
             <a href="#slide2" className="btn btn-circle">
-              ❮
-            </a>
-            <a href="#slide4" className="btn btn-circle">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide4" className="carousel-item relative w-full">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-            className="w-full"
-          />
-          <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-            <a href="#slide3" className="btn btn-circle">
               ❮
             </a>
             <a href="#slide1" className="btn btn-circle">
