@@ -24,7 +24,7 @@ const MyListings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // fetch the API to delete
-        fetch(`https://find-roommate-server-gules.vercel.app/my-listings/${id}`, {
+        fetch(`find-roommate-server-gules.vercel.app/my-listings/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

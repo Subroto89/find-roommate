@@ -36,7 +36,7 @@ const AddRoommate = () => {
     console.log(newRoommate);
 
     // send formData to database
-    fetch("https://find-roommate-server-gules.vercel.app/roommates", {
+    fetch("find-roommate-server-gules.vercel.app/roommates", {
       method: "POST",
       headers: {
         "content-type": "application/json",

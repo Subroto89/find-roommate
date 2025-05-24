@@ -19,7 +19,7 @@ const DetailesPage = () => {
       setIsLike(incrementedLikeAmount);
 
       // send isLike data to database for updating
-      fetch(`https://find-roommate-server-gules.vercel.app/roommates/${_id}`, {
+      fetch(`find-roommate-server-gules.vercel.app/roommates/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

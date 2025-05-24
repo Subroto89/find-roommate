@@ -6,7 +6,7 @@ const RoommateLimit = () => {
 
     const [roommates, setRoommates] = useState([]);
     useEffect(()=>{
-        fetch('https://find-roommate-server-gules.vercel.app/limited-roommates')
+        fetch('find-roommate-server-gules.vercel.app/limited-roommates')
         .then(res => res.json())
         .then(data => {
             setRoommates(data)
