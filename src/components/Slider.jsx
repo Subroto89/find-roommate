@@ -17,11 +17,12 @@ const Slider = () => {
   return (
     <div>
       <div className="carousel w-full">
+        {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
           <div className="w-full">
-            <div className="flex flex-col md:flex-row overflow-hidden h-[400px] bg-blue-100 relative">
-              <img src={carousel1} className="w-2/5 absolute right-30" />
-              <div className="absolute top-30 mx-16 md:mx-30">
+            <div className="grid grid-cols-1 md:grid-cols-1 overflow-hidden h-[400px] bg-blue-100 relative">
+              <img src={carousel1} className="w-2/5 absolute right-30 order-2 md:order-1" />
+              <div className="absolute top-30 mx-16 md:mx-30 order-1 md:order-2">
                 <h2 className="text-md md:text-xl text-gray-800 font-bold">
                   Intelligent
                   {text}
@@ -56,9 +57,9 @@ const Slider = () => {
         {/* Slide No 2 */}
         <div id="slide2" className="carousel-item relative w-full">
           <div className="w-full">
-            <div className="flex flex-col md:flex-row overflow-hidden h-[400px] bg-blue-100 relative">
-              <img src={carousel2} className="w-2/5 absolute right-30" />
-              <div className="absolute top-30 mx-16 md:mx-30">
+            <div className="grid grid-cols-1 md:grid-cols-1 overflow-hidden h-[400px] bg-blue-100 relative">
+              <img src={carousel2} className="w-2/5 absolute right-30 order-1 md:order-2" />
+              <div className="absolute top-30 mx-16 md:mx-30 order-2 md:order-1">
                 <h2 className="text-md md:text-xl text-gray-800 font-bold">
                   Find Your Roommate - Super Fast
                 </h2>
@@ -89,9 +90,9 @@ const Slider = () => {
         {/* Slide No 3 */}
         <div id="slide3" className="carousel-item relative w-full">
           <div className="w-full">
-            <div className="flex flex-col md:flex-row overflow-hidden h-[400px] bg-blue-100 relative">
-              <img src={carousel3} className="w-3/8 md:w-2/5 absolute right-30" />
-              <div className="absolute top-30 mx-16 md:mx-30">
+            <div className="grid grid-cols-1 md:grid-cols-1 overflow-hidden h-[400px] bg-blue-100 relative">
+              <img src={carousel3} className="w-3/8 md:w-2/5 absolute right-30 order-1 md:order-2" />
+              <div className="absolute top-30 mx-16 md:mx-30 order-2 md:order-1">
                 <h2 className="text-md md:text-xl text-gray-800 font-bold">
                   Now, You Can Post Your Listing !
                 </h2>
