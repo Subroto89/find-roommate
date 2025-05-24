@@ -6,8 +6,8 @@ import appAbout from "../../src/assets/appAbout.png";
 const AppAbout = () => {
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-10 mx-8 md:mx-16 bg-gray-100 text-gray-600 rounded-lg">
-        <div className="order-2 md:order-1">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-10 mx-2 lg:mx-16 bg-gray-100 text-gray-600 rounded-lg">
+        <div className="order-2 lg:order-1">
           <h2 className="font-bold text-2xl mb-8">How It Works</h2>
           <div className="flex items-center gap-2">
             <TiTick />
@@ -28,7 +28,7 @@ const AppAbout = () => {
             Get Started
           </Link>
         </div>
-        <img src={appAbout} className="order-1 md:order-2"/>
+        <img src={appAbout} className="order-1 lg:order-2 w-80 lg:w-96"/>
       </div>
     </div>
   );

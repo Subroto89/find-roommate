@@ -2,6 +2,7 @@ import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -44,13 +45,22 @@ const Register = () => {
     createUser(emailId, password)
       .then((userCredential) => {
         const user = userCredential.user;
-         navigate(`${location.state ? location.state : '/'}`);
+        navigate(`${location.state ? location.state : "/"}`);
         updateUser({ displayName: userName, photoURL: userPhoto })
-        .then(() => {
-          setUser({...user, displayName: userName, photoURL: userPhoto});
-        }).catch(error => {
+          .then(() => {
+            setUser({ ...user, displayName: userName, photoURL: userPhoto });
+            form.reset();
+            Swal.fire({
+              position: "center-center",
+              icon: "success",
+              title: "You are successfully registered!",
+              showConfirmButton: false,
+              timer: 2000,
+            });
+          })
+          .catch((error) => {
             console.log(error);
-        })
+          });
         // setUser(user);
         console.log(user);
       })
@@ -59,7 +69,6 @@ const Register = () => {
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
-
   };
 
   //   contact firebase for creating user using email address

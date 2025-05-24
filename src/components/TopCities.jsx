@@ -21,7 +21,7 @@ const TopCities = () => {
     "Sylhet",
   ];
   return (
-    <div className="my-6 mx-8 md:mx-16 bg-gray-200 rounded-lg p-8">
+    <div className="my-6 mx-2 md:mx-16 bg-gray-200 rounded-lg p-8">
       <h2 className="text-2xl font-bold mb-6">Search In Top Cities</h2>
       <div className="p-8 grid grid-cols-2 md:grid-cols-4 px-4 py-1">
        {

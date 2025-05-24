@@ -6,7 +6,7 @@ const RoommateLimit = () => {
 
     const [roommates, setRoommates] = useState([]);
     useEffect(()=>{
-        fetch('find-roommate-server-gules.vercel.app/limited-roommates')
+        fetch('https://find-roommate-server-gules.vercel.app/limited-roommates')
         .then(res => res.json())
         .then(data => {
             setRoommates(data)
@@ -15,8 +15,8 @@ const RoommateLimit = () => {
     },[roommates])
 
     return (
-        <div className="my-6 mx-8 md:mx-16 bg-gray-200 rounded-lg p-8">
-          <h2 className="text-2xl font-bold mb-6"><MdOutlineFeaturedPlayList className="inline-block mr-6" size={46} />Featured Postings</h2>
+        <div className="my-6 mx-2 lg:mx-16 bg-gray-200 rounded-lg px-2 py-8">
+          <h2 className="text-md lg:text-2xl font-bold mb-6"><MdOutlineFeaturedPlayList className="inline-block mr-6" size={46} />Featured Postings</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {
                 roommates.map(roommate => <RoommateLimitCard key={roommate._id} 

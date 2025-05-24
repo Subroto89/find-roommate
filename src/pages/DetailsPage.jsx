@@ -19,7 +19,7 @@ const DetailesPage = () => {
       setIsLike(incrementedLikeAmount);
 
       // send isLike data to database for updating
-      fetch(`find-roommate-server-gules.vercel.app/roommates/${_id}`, {
+      fetch(`https://find-roommate-server-gules.vercel.app/roommates/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -57,20 +57,20 @@ const DetailesPage = () => {
   } = data;
 
   return (
-    <div className="w-11/12 mx-auto my-8 p-8 rounded-lg bg-amber-100 text-gray-700">
+    <div className="w-11/12 mx-auto my-8 p-3 rounded-lg bg-amber-100 text-gray-700">
       {/* Top Part(included photo, name, location, title) */}
       <div className="mb-6">
         <div>
-          <div className="flex items-center gap-8 mb-8">
+          <div className="flex items-center gap-2 lg:gap-8 mb-8">
             <img
               src={photo}
               alt="user photo"
-              className="rounded-full w-30 h-30 border-2 border-blue-300 p-2"
+              className="rounded-full w-16 lg:w-30 h-16 lg:h-30 border-2 border-blue-300 p-2"
             />
             <div>
-              <h2 className="text-xl font-bold">{userName}</h2>
-              <p className="font-semibold">{location}</p>
-              <p className="font-semibold">{isLike} People interested in.</p>
+              <h2 className="text-sm lg:text-xl font-bold">{userName}</h2>
+              <p className="text-sm lg:text-md font-semibold">{location}</p>
+              <p className="text-sm lg:text-md font-semibold"><span className="text-blue-600">{isLike}</span> People interested in.</p>
             </div>
           </div>
 
@@ -131,8 +131,8 @@ const DetailesPage = () => {
           <span>{userEmail}</span>
         </p>
         <p>
-          <span className="font-semibold">Phone No:</span>{" "}
-          {isLike ? <span>{contactInfo}</span> : "nai"}
+          <span className="font-semibold">Phone No:</span>
+          {isLike > 0 ? <span>{contactInfo}</span> : "Like to get the contact number"}
         </p>
         {isLike > 0 ? (
           <div className="flex items-center gap-2 bg-green-400 px-2 rounded-lg w-20 cursor-pointer">

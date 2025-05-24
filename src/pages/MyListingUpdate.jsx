@@ -1,11 +1,14 @@
 import React, { use, useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { BiEdit } from "react-icons/bi";
 import Swal from "sweetalert2";
 
 const MyListingUpdate = () => {
     const [selectedPreferences, setSelectedPreferences] = useState([]);
+    const {user} = use(AuthContext);
+    const navigate = useNavigate();
+
     const handleChange = (event) => {
     const { value, checked } = event.target;
 
@@ -27,7 +30,7 @@ const MyListingUpdate = () => {
          title,
          availability 
   } = data;
-  const { user } = use(AuthContext);
+  
 
   const lifestyleOptions = [
     "Pets Allowed",
@@ -56,7 +59,7 @@ const MyListingUpdate = () => {
       console.log(newRoommate);
   
       // send formData to database
-      fetch(`find-roommate-server-gules.vercel.app/roommates/${_id}`, {
+      fetch(`https://find-roommate-server-gules.vercel.app/roommates/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -69,10 +72,12 @@ const MyListingUpdate = () => {
             Swal.fire({
               position: "center-center",
               icon: "success",
-              title: "Your data has been stored successfully",
+              title: "Your data has been updated successfully",
               showConfirmButton: false,
               timer: 1500,
             });
+            navigate(`/my-listing/${user?.email}`);
+            window.scrollTo(0,0);
           }
           console.log("after added data to database", data);
         });

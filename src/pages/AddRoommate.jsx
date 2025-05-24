@@ -36,7 +36,7 @@ const AddRoommate = () => {
     console.log(newRoommate);
 
     // send formData to database
-    fetch("find-roommate-server-gules.vercel.app/roommates", {
+    fetch("https://find-roommate-server-gules.vercel.app/roommates", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,10 +46,11 @@ const AddRoommate = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
+          form.reset();
           Swal.fire({
             position: "center-center",
             icon: "success",
-            title: "Your data has been stored successfully",
+            title: "Posting confirmed!",
             showConfirmButton: false,
             timer: 1500,
           });
