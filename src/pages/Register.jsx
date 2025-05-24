@@ -96,7 +96,7 @@ const Register = () => {
                 id="userName"
                 required
                 placeholder="Your full name goes here"
-                className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-blue-300"
               />
             </div>
 
@@ -110,7 +110,7 @@ const Register = () => {
                 id="emailId"
                 required
                 placeholder="Your email id goes here"
-                className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-blue-300"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -123,7 +123,7 @@ const Register = () => {
                 id="userPhoto"
                 required
                 placeholder="Place your photo URL here"
-                className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-blue-300"
               />
             </div>
             <div className="text-sm">
@@ -137,7 +137,7 @@ const Register = () => {
                   id="password"
                   required
                   placeholder="Password"
-                  className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+                  className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-blue-300"
                 />
                 {passType === "password" ? (
                   <FaEyeSlash

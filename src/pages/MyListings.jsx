@@ -29,7 +29,7 @@ const MyListings = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data.deletedCount);
+            
             if (data.deletedCount) {
               const remainingListings = listings.filter(
                 (listing) => listing._id !== id
@@ -47,7 +47,7 @@ const MyListings = () => {
   };
   return (
     <div>
-      <div className="overflow-x-auto bg-white rounded-xl shadow-2xl border border-gray-200">
+      <div className="overflow-x-auto bg-white rounded-xl shadow-2xl border border-gray-200 mx-8 md:mx-16 my-8">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-100">
             <tr>

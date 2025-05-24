@@ -104,7 +104,7 @@ const BrowseListing = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <button
                       onClick={() => handleSeeMore(listing._id)}
-                      className="text-blue-600 hover:text-blue-900 font-semibold px-4 py-2 border border-blue-600 rounded-lg hover:bg-blue-600 transition-colors duration-200"
+                      className="text-blue-600 hover:text-white font-semibold px-2 py-1 border border-blue-600 rounded-lg hover:bg-blue-600 transition-colors duration-200"
                     >
                       See More
                     </button>

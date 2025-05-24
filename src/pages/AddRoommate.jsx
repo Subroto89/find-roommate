@@ -59,7 +59,7 @@ const AddRoommate = () => {
   };
   return (
     <div>
-      <div className="bg-amber-100 px-4 md:px-8 py-6 mx-8 md:mx-20 my-8 rounded-lg">
+      <div className="bg-amber-100 px-4 md:px-8 py-6 mx-8 md:mx-20 my-8 rounded-lg border-2 border-blue-300 shadow-lg">
         <h1 className="text-2xl font-semibold text-gray-700 text-center mb-10">
           Post a New Roommate Listing
         </h1>
@@ -82,7 +82,25 @@ const AddRoommate = () => {
               name="title"
               maxLength="100"
               required
-              className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+          </div>
+
+          {/* Roommate Photo URL */}
+          <div className="mb-8">
+            <label
+              htmlFor="title"
+              className="block text-gray-700 text-sm font-semibold mb-2"
+            >
+              Photo URL
+            </label>
+            <input
+              type="text"
+              placeholder="e.g., http://xyz.imgbb/co"
+              id="photo"
+              name="photo"
+              required
+              className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
 
@@ -139,7 +157,7 @@ const AddRoommate = () => {
                 id="location"
                 name="location"
                 required
-                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
             </div>
 
@@ -155,7 +173,7 @@ const AddRoommate = () => {
                 type="text"
                 id="contactInfo"
                 name="contactInfo"
-                className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
                 placeholder="e.g., +8801XXXXXXXXX (WhatsApp)"
                 required
               />
@@ -182,7 +200,7 @@ const AddRoommate = () => {
                 min="0"
                 step="100"
                 required
-                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
             </div>
 
@@ -198,7 +216,7 @@ const AddRoommate = () => {
                 id="roomType"
                 name="roomType"
                 required
-                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
               >
                 <option value="single">Single Room</option>
                 <option value="shared">Shared Room</option>
@@ -225,7 +243,7 @@ const AddRoommate = () => {
                     name="lifestylePreferences"
                     value={pref}
                     onChange={handleChange}
-                    className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+                    className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-300"
                   />
                   <label
                     htmlFor={pref
@@ -252,7 +270,7 @@ const AddRoommate = () => {
             <textarea
               id="description"
               name="description"
-              className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 h-40 resize-y"
+              className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-300 h-40 resize-y"
               placeholder="Describe the room, the apartment, amenities, neighborhood, and what you're looking for in a roommate."
               required
               minLength="50"
@@ -266,7 +284,7 @@ const AddRoommate = () => {
               type="checkbox"
               id="availability"
               name="availability"
-              className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+              className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-300"
             />
             <label
               htmlFor="availability"
@@ -287,7 +305,7 @@ const AddRoommate = () => {
 
           {/* Like Section-This is invisible */}
           <input type="number" name="like" id="like" defaultValue="0" hidden className="border border-gray-600 w-40 text-gray-800"/>
-          <input type="radio" name="likedOrNotValue" id="likedOrNotValue" hidden className="h-5 w-5 text-blue-600 focus:ring-blue-500"/>   
+          <input type="radio" name="likedOrNotValue" id="likedOrNotValue" hidden className="h-5 w-5 text-blue-600 focus:ring-blue-300"/>   
         </form>
       </div>
     </div>

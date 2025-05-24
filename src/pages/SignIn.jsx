@@ -69,7 +69,7 @@ const SignIn = () => {
               ref={emailRef}
               required
               placeholder="Enter your email"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-blue-300"
             />
           </div>
           <div className="space-y-1 text-sm">
@@ -82,7 +82,7 @@ const SignIn = () => {
               id="password"
               required
               placeholder="Password"
-              className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-blue-300"
             />
             <div className="flex justify-end text-xs dark:text-gray-600">
               <a

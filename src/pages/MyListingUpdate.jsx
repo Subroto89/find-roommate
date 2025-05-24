@@ -79,7 +79,7 @@ const MyListingUpdate = () => {
     };
   return (
     <div>
-      <div className="bg-amber-100 px-4 md:px-8 py-6 mx-8 md:mx-20 my-8 rounded-lg">
+      <div className="bg-amber-100 px-4 md:px-8 py-6 mx-8 md:mx-20 my-8 rounded-lg border-2 border-blue-300">
         <h1 className="text-2xl font-semibold text-gray-700 text-center mb-10">
           Update My Post
         </h1>
@@ -104,7 +104,7 @@ const MyListingUpdate = () => {
               defaultValue={title}
               maxLength="100"
               required
-              className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
 
@@ -162,7 +162,7 @@ const MyListingUpdate = () => {
                 name="location"
                 defaultValue={location}
                 required
-                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
             </div>
 
@@ -179,7 +179,7 @@ const MyListingUpdate = () => {
                 id="contactInfo"
                 name="contactInfo"
                 defaultValue={contactInfo}
-                className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent"
                 placeholder="e.g., +8801XXXXXXXXX (WhatsApp)"
                 required
               />
@@ -207,7 +207,7 @@ const MyListingUpdate = () => {
                 min="0"
                 step="100"
                 required
-                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
             </div>
 
@@ -224,7 +224,7 @@ const MyListingUpdate = () => {
                 name="roomType"
                 defaultValue={roomType}
                 required
-                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 rounded-lg shadow-sm w-full px-3 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
               >
                 <option value="single">Single Room</option>
                 <option value="shared">Shared Room</option>
@@ -252,7 +252,7 @@ const MyListingUpdate = () => {
                     
                     value={pref}
                     onChange={handleChange}
-                    className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+                    className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-300"
                   />
                   <label
                     htmlFor={pref
@@ -280,7 +280,7 @@ const MyListingUpdate = () => {
               id="description"
               name="description"
               defaultValue={description}
-              className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 h-40 resize-y"
+              className="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-300 h-40 resize-y"
               placeholder="Describe the room, the apartment, amenities, neighborhood, and what you're looking for in a roommate."
               required
               minLength="50"
@@ -295,7 +295,7 @@ const MyListingUpdate = () => {
               id="availability"
               name="availability"
               defaultValue={availability}
-              className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500"
+              className="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-300"
             />
             <label
               htmlFor="availability"
